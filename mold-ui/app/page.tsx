@@ -21,10 +21,6 @@ function Particles() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-<<<<<<< HEAD
-=======
-
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
     resize();
     window.addEventListener("resize", resize);
 
@@ -91,10 +87,7 @@ export default function Home() {
   const [trainFile, setTrainFile] = useState<File | null>(null);
   const [label, setLabel] = useState("Aspergillus niger");
 
-<<<<<<< HEAD
   /* ===== 预测函数 ===== */
-=======
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
   const handleUpload = async () => {
     if (!file) return alert("请选择图片");
 
@@ -104,48 +97,32 @@ export default function Home() {
     try {
       setLoading(true);
 
-<<<<<<< HEAD
       // ✅ 真实 Render 后端地址
       const res = await axios.post(
         "https://moldai.onrender.com/predict",
         formData
       );
-=======
-      const res = await axios.post("http://127.0.0.1:8000/predict", formData);
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
 
       setResult(res.data.top.label);
       setConfidence(res.data.top.score);
       setMixed(res.data.mixed);
-<<<<<<< HEAD
     } catch (err) {
       console.error(err);
       alert("后端未运行或无法访问！");
-=======
-
-    } catch {
-      alert("后端没开！");
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
     } finally {
       setLoading(false);
     }
   };
 
-<<<<<<< HEAD
   /* ===== 训练上传函数 ===== */
   const handleTrain = async () => {
     if (!trainFile) return alert("请选择训练图片");
-=======
-  const handleTrain = async () => {
-    if (!trainFile) return alert("选训练图");
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
 
     const formData = new FormData();
     formData.append("file", trainFile);
     formData.append("label", label);
 
     try {
-<<<<<<< HEAD
       await axios.post(
         "https://moldai.onrender.com/train/upload",
         formData
@@ -154,12 +131,6 @@ export default function Home() {
     } catch (err) {
       console.error(err);
       alert("训练上传失败！");
-=======
-      await axios.post("http://127.0.0.1:8000/train/upload", formData);
-      alert("训练成功");
-    } catch {
-      alert("训练失败");
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
     }
   };
 
@@ -171,11 +142,7 @@ export default function Home() {
       <div className="page">
         <h1 className="title">🧬 Mold AI Intelligence System</h1>
 
-<<<<<<< HEAD
         {/* ===== 预测区域 ===== */}
-=======
-        {/* ===== 预测 ===== */}
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
         <div className="card">
           <h2>🔬 AI Prediction</h2>
 
@@ -192,12 +159,8 @@ export default function Home() {
 
           {preview && <img src={preview} className="preview" />}
 
-<<<<<<< HEAD
           <br />
           <br />
-=======
-          <br /><br />
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
 
           <button className="btn" onClick={handleUpload}>
             开始分析
@@ -209,13 +172,7 @@ export default function Home() {
             <div className="result">
               <div className="main-result">{result}</div>
 
-<<<<<<< HEAD
               <p>置信度：{(confidence * 100).toFixed(1)}%</p>
-=======
-              <p>
-                置信度：{(confidence * 100).toFixed(1)}%
-              </p>
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
 
               <div className="bar-bg">
                 <div
@@ -242,11 +199,7 @@ export default function Home() {
           )}
         </div>
 
-<<<<<<< HEAD
         {/* ===== 训练区域 ===== */}
-=======
-        {/* ===== 训练 ===== */}
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
         <div className="card">
           <h2>🧠 AI Training</h2>
 
@@ -259,12 +212,8 @@ export default function Home() {
             }}
           />
 
-<<<<<<< HEAD
           <br />
           <br />
-=======
-          <br /><br />
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
 
           <select
             value={label}
@@ -276,12 +225,8 @@ export default function Home() {
             <option>Paenibacillus polymyxa</option>
           </select>
 
-<<<<<<< HEAD
           <br />
           <br />
-=======
-          <br /><br />
->>>>>>> dfe5e7d13ff30b16e39de84166f0f4d3da48179c
 
           <button className="btn" onClick={handleTrain}>
             上传训练数据
